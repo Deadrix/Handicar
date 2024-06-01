@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -50,10 +49,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $carte_identite = null;
 
-    #[ORM\OneToOne(mappedBy: 'id_utilisateur', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Client $client = null;
 
-    #[ORM\OneToOne(mappedBy: 'id_utilisateur', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Chauffeur $chauffeur = null;
 
     public function getId(): ?int
@@ -199,8 +198,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setClient(Client $client): static
     {
         // set the owning side of the relation if necessary
-        if ($client->getIdUtilisateur() !== $this) {
-            $client->setIdUtilisateur($this);
+        if ($client->getUser() !== $this) {
+            $client->setUser($this);
         }
 
         $this->client = $client;
@@ -216,8 +215,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setChauffeur(Chauffeur $chauffeur): static
     {
         // set the owning side of the relation if necessary
-        if ($chauffeur->getIdUtilisateur() !== $this) {
-            $chauffeur->setIdUtilisateur($this);
+        if ($chauffeur->getUser() !== $this) {
+            $chauffeur->setUser($this);
         }
 
         $this->chauffeur = $chauffeur;

@@ -16,7 +16,7 @@
 {#    {% endif %}#}
 
     <div class="flex w-screen h-full justify-between items-center">
-        <div class="flex flex-col px-4 py-4 mx-auto lg:mx-0 lg:px-14">
+        <div class="flex flex-col w-[500px] lg:min-w-[500px] px-4 py-4 mx-auto lg:mx-0 lg:px-14">
             <div>
                 <img class="h-14 w-auto" src="{{ asset('images/logo.png') }}"
                      alt="Handicar">
@@ -31,7 +31,7 @@
                         <div class="mt-2">
                             <input type="email" value="{{ last_username }}" name="_username" id="email"
                                    autocomplete="email" required autofocus
-                                   class="block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                   class="block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                                class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
                         <div class="mt-2">
                             <input type="password" name="_password" id="password"
-                                   class="block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                   class="block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                                    autocomplete="current-password"
                                    required>
 
@@ -66,11 +66,14 @@
 
                     <div>
                         <button type="submit"
-                                class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                             Se connecter
                         </button>
                     </div>
                 </form>
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
             </div>
         </div>
 

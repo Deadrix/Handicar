@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% block title %}Bienvenue{% endblock %} | Handicar</title>
         <link rel="icon" href="{{ asset("/images/icon.ico") }}">
         {% block stylesheets %}
@@ -13,7 +14,7 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body class="flex w-screen h-screen items-center justify-center">
+    <body class="flex w-screen h-screen items-center justify-center font-primary">
         {% block body %}{% endblock %}
     </body>
 </html>

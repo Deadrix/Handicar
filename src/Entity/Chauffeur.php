@@ -23,12 +23,12 @@ class Chauffeur
 
     #[ORM\OneToOne(inversedBy: 'chauffeur', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $id_utilisateur = null;
+    private ?User $user = null;
 
     /**
      * @var Collection<int, GererHandicap>
      */
-    #[ORM\OneToMany(targetEntity: GererHandicap::class, mappedBy: 'id_utilisateur', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: GererHandicap::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $handicaps;
 
     /**
@@ -72,14 +72,14 @@ class Chauffeur
         return $this;
     }
 
-    public function getIdUtilisateur(): ?user
+    public function getUser(): ?user
     {
-        return $this->id_utilisateur;
+        return $this->user;
     }
 
-    public function setIdUtilisateur(user $id_utilisateur): static
+    public function setUser(user $user): static
     {
-        $this->id_utilisateur = $id_utilisateur;
+        $this->user = $user;
 
         return $this;
     }

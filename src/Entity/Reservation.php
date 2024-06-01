@@ -32,15 +32,15 @@ class Reservation
      * @var Collection<int, client>
      */
     #[ORM\ManyToMany(targetEntity: client::class, inversedBy: 'reservations')]
-    private Collection $id_utilisateur;
+    private Collection $clients;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?chauffeur $id_chauffeur = null;
+    private ?Chauffeur $chauffeur = null;
 
     public function __construct()
     {
-        $this->id_utilisateur = new ArrayCollection();
+        $this->clients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -99,35 +99,35 @@ class Reservation
     /**
      * @return Collection<int, client>
      */
-    public function getIdUtilisateur(): Collection
+    public function getClients(): Collection
     {
-        return $this->id_utilisateur;
+        return $this->clients;
     }
 
-    public function addIdUtilisateur(client $idUtilisateur): static
+    public function addClient(Client $client): static
     {
-        if (!$this->id_utilisateur->contains($idUtilisateur)) {
-            $this->id_utilisateur->add($idUtilisateur);
+        if (!$this->clients->contains($client)) {
+            $this->clients->add($client);
         }
 
         return $this;
     }
 
-    public function removeIdUtilisateur(client $idUtilisateur): static
+    public function removeClient(client $client): static
     {
-        $this->id_utilisateur->removeElement($idUtilisateur);
+        $this->clients->removeElement($client);
 
         return $this;
     }
 
-    public function getIdChauffeur(): ?chauffeur
+    public function getChauffeur(): ?Chauffeur
     {
-        return $this->id_chauffeur;
+        return $this->chauffeur;
     }
 
-    public function setIdChauffeur(?chauffeur $id_chauffeur): static
+    public function setChauffeur(?Chauffeur $chauffeur): static
     {
-        $this->id_chauffeur = $id_chauffeur;
+        $this->chauffeur = $chauffeur;
 
         return $this;
     }

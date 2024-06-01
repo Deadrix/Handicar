@@ -15,23 +15,23 @@ class Client
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $adresse = null;
 
     #[ORM\OneToOne(inversedBy: 'client', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $id_utilisateur = null;
+    private ?User $user= null;
 
     /**
      * @var Collection<int, AvoirHandicap>
      */
-    #[ORM\OneToMany(targetEntity: AvoirHandicap::class, mappedBy: 'id_utilisateur', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: AvoirHandicap::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $handicaps;
 
     /**
      * @var Collection<int, Reservation>
      */
-    #[ORM\ManyToMany(targetEntity: Reservation::class, mappedBy: 'id_utilisateur')]
+    #[ORM\ManyToMany(targetEntity: Reservation::class, mappedBy: 'user')]
     private Collection $reservations;
 
     public function __construct()
@@ -57,14 +57,14 @@ class Client
         return $this;
     }
 
-    public function getIdUtilisateur(): ?user
+    public function getUser(): ?user
     {
-        return $this->id_utilisateur;
+        return $this->user;
     }
 
-    public function setIdUtilisateur(user $id_utilisateur): static
+    public function setUser(user $user): static
     {
-        $this->id_utilisateur = $id_utilisateur;
+        $this->user = $user;
 
         return $this;
     }
@@ -81,7 +81,7 @@ class Client
     {
         if (!$this->handicaps->contains($handicap)) {
             $this->handicaps->add($handicap);
-            $handicap->setIdUtilisateur($this);
+            $handicap->setUser($this);
         }
 
         return $this;
@@ -91,8 +91,8 @@ class Client
     {
         if ($this->handicaps->removeElement($handicap)) {
             // set the owning side to null (unless already changed)
-            if ($handicap->getIdUtilisateur() === $this) {
-                $handicap->setIdUtilisateur(null);
+            if ($handicap->getUser() === $this) {
+                $handicap->setUser(null);
             }
         }
 

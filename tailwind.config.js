@@ -6,9 +6,13 @@ module.exports = {
     ],
     theme: {
         extend: {},
+        colors: {
+            'primary': '#90E0EF',
+        },
+        fontFamily: {
+            'primary': ['"Open Sans"'],
+        }
     },
-    plugins: [
-        // require('@tailwindcss/forms'),
-    ],
+    plugins: [],
 }
 

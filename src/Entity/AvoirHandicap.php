@@ -15,37 +15,37 @@ class AvoirHandicap
 
     #[ORM\ManyToOne(inversedBy: 'handicaps')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?client $id_utilisateur = null;
+    private ?Client $user = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?handicap $id_handicap = null;
+    private ?Handicap $handicap = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdUtilisateur(): ?client
+    public function getUser(): ?Client
     {
-        return $this->id_utilisateur;
+        return $this->user;
     }
 
-    public function setIdUtilisateur(?client $id_utilisateur): static
+    public function setUser(?Client $user): static
     {
-        $this->id_utilisateur = $id_utilisateur;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getIdHandicap(): ?handicap
+    public function getHandicap(): ?handicap
     {
-        return $this->id_handicap;
+        return $this->handicap;
     }
 
-    public function setIdHandicap(?handicap $id_handicap): static
+    public function setIdHandicap(?handicap $handicap): static
     {
-        $this->id_handicap = $id_handicap;
+        $this->handicap = $handicap;
 
         return $this;
     }
