@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+
+
+{#    {% if error %}#}
+{#        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+{#    {% endif %}#}
+
+{#    {% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+    <div class="flex w-screen h-full justify-between items-center">
+        <div class="flex flex-col px-4 py-4 mx-auto lg:mx-0 lg:px-14">
+            <div>
+                <img class="h-14 w-auto" src="{{ asset('images/logo.png') }}"
+                     alt="Handicar">
+                <h2 class="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">Se connecter</h2>
+            </div>
+
+            <div class="mt-10">
+                <form method="POST" class="space-y-6">
+                    <div>
+                        <label for="email"
+                               class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+                        <div class="mt-2">
+                            <input type="email" value="{{ last_username }}" name="_username" id="email"
+                                   autocomplete="email" required autofocus
+                                   class="block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password"
+                               class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
+                        <div class="mt-2">
+                            <input type="password" name="_password" id="password"
+                                   class="block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                   autocomplete="current-password"
+                                   required>
+
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                            <label for="remember-me" class="ml-3 block text-sm leading-6 text-gray-700">Se
+                                souvenir de moi</label>
+                        </div>
+
+                        <div class="text-sm leading-6">
+                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Mot de passe
+                                oublié ?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Se connecter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="hidden lg:block">
+            <img class="h-screen object-cover"
+                 src="{{ asset('images/photo_connexion.png') }}"
+                 alt="">
+        </div>
+    </div>
+
+{% endblock %}
