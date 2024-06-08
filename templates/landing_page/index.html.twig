@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block header %}{% include 'landing_page/header.html.twig' %}{% endblock %}
+
+{% block main %}
+
+    <section id="top" class="bg-[#E7F7FE] pt-10 pb-14">
+        <div class="text-center mx-auto mb-6 font-medium">
+            <h1 class="text-[42px]">Calculez vos économies en covoiturage</h1>
+        </div>
+
+        <div class="flex justify-between items-center container mx-auto">
+            <div class="flex px-4 flex-1">
+                <div class="me-auto my-auto text-[14px]">
+                    <div class="bg-[#FFFFFF] rounded-t-2xl flex flex-col gap-4 pt-7 px-7 pb-3">
+                        <div class="flex gap-2">
+                            <img src="{{ asset('images/ring.svg') }}" alt="">
+                            Paris
+                        </div>
+                        <hr class="bg-[#DEDEDE]">
+                        <div class="flex gap-2">
+                            <img src="{{ asset('images/ring.svg') }}" alt="">
+                            Toulouse
+                        </div>
+                        <hr class="bg-[#DEDEDE]">
+                        <div class="flex gap-2">
+                            <img src="{{ asset('images/avatar.svg') }}" alt="">
+                            2 passagers
+                        </div>
+                        <hr class="bg-[#DEDEDE]">
+                        <div class="font-bold text-[24px] text-center">
+                            <span class="text-[#00AFF5] shadow-2xl">Economisez</span> et rendez
+                            <p>services autour de</p>
+                            <p>vous</p>
+                        </div>
+                    </div>
+                    <div class="rounded-b-2xl bg-[#00AFF5] text-center py-5 text-[#FFFFFF]">
+                        Publier un trajet
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-1">
+                <img src="{{ asset('images/voiture_landing_page.png') }}" alt="" class="w-full h-auto">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="mid" class="w-full pt-5 pb-14">
+        <div class="container mx-auto">
+            <div class="text-center mx-auto mb-6 font-medium text-[40px]">
+                <h1>Roulez. Partagez.</h1>
+                <h1>Economisez.</h1>
+            </div>
+            <div class="flex justify-center items-center text-[14.5px] gap-20">
+                <div class="flex-1 flex justify-end">
+                    <div class="flex flex-col gap-3 max-w-[290px]">
+                        <img src="{{ asset('images/data.svg') }}" alt="" class="h-[34px] w-[34px]">
+                        <h2 class="text-[12px]">Handi'Car : Votre liberté de voyager ♿</h2>
+                        <p class="text-[#6F8B90]">
+                            Covoiturage adapté, trouvez votre trajet idéal !
+                            <br>
+                            Destinations variées, prix accessibles.
+                            Voyagez sereinement, on s'occupe de tout.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex justify-start">
+                    <div class="flex flex-col gap-3 max-w-[290px] text-[14.5px]">
+                        <img src="{{ asset('images/bolt.svg') }}" alt="" class="h-[34px] w-[25px]">
+                        <h2 class="text-[12px]">Handi'Car : Réservez votre trajet en un clin d'oeil !</h2>
+                        <p class="text-[#6F8B90]">
+                            Application simple et efficace, technologies avancées.
+                            <br>
+                            Trouvez votre trajet adapté en quelques clics.
+                            <br>
+                            Voyagez sereinement, on vous guide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block footer %}{% include 'landing_page/footer.html.twig' %}{% endblock %}

@@ -2,7 +2,7 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
+{% block main %}
 
     {{ form_errors(registrationForm) }}
 
@@ -21,7 +21,7 @@
                         <label for="registration_form_email"
                                class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                         <div class="mt-2">
-                            {{ form_widget(registrationForm.user.email, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}}) }}
+                            {{ form_widget(registrationForm.user.email, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6'}}) }}
                             {% if registrationForm.user.email.vars.errors is not empty %}
                                 <ul class="text-red-600">
                                     {% for error in registrationForm.user.email.vars.errors %}
@@ -36,7 +36,7 @@
                         <label for="registration_form_nom"
                                class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
                         <div class="mt-2">
-                            {{ form_widget(registrationForm.user.nom, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}}) }}
+                            {{ form_widget(registrationForm.user.nom, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6'}}) }}
                             {% if registrationForm.user.nom.vars.errors is not empty %}
                                 <ul class="text-red-600">
                                     {% for error in registrationForm.user.nom.vars.errors %}
@@ -51,7 +51,7 @@
                         <label for="registration_form_prenom"
                                class="block text-sm font-medium leading-6 text-gray-900">Prénom</label>
                         <div class="mt-2">
-                            {{ form_widget(registrationForm.user.prenom, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}}) }}
+                            {{ form_widget(registrationForm.user.prenom, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6'}}) }}
                             {% if registrationForm.user.prenom.vars.errors is not empty %}
                                 <ul class="text-red-600">
                                     {% for error in registrationForm.user.prenom.vars.errors %}
@@ -66,7 +66,7 @@
                         <label for="registration_form_date_de_naissance"
                                class="block text-sm font-medium leading-6 text-gray-900">Date de naissance</label>
                         <div class="mt-2">
-                            {{ form_widget(registrationForm.user.date_de_naissance, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}}) }}
+                            {{ form_widget(registrationForm.user.date_de_naissance, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6'}}) }}
                             {% if registrationForm.user.date_de_naissance.vars.errors is not empty %}
                                 <ul class="text-red-600">
                                     {% for error in registrationForm.user.date_de_naissance.vars.errors %}
@@ -81,7 +81,7 @@
                         <label for="registration_form_password_first"
                                class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
                         <div class="mt-2">
-                            {{ form_widget(registrationForm.user.password.first, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}}) }}
+                            {{ form_widget(registrationForm.user.password.first, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6'}}) }}
                             {% if registrationForm.user.password.first.vars.errors is not empty %}
                                 <ul class="text-red-600">
                                     {% for error in registrationForm.user.password.first.vars.errors %}
@@ -97,7 +97,7 @@
                                class="block text-sm font-medium leading-6 text-gray-900">Confirmer le mot de
                             passe</label>
                         <div class="mt-2">
-                            {{ form_widget(registrationForm.user.password.second, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}}) }}
+                            {{ form_widget(registrationForm.user.password.second, {'attr': {'class': 'block w-full rounded-md border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-primary focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6'}}) }}
                             {% if registrationForm.user.password.second.vars.errors is not empty %}
                                 <ul class="text-red-600">
                                     {% for error in registrationForm.user.password.second.vars.errors %}
@@ -117,7 +117,7 @@
 
                     <div>
                         <button type="submit"
-                                class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                             Créer un compte
                         </button>
                     </div>

@@ -2,7 +2,7 @@
 
 {% block title %}Se connecter{% endblock %}
 
-{% block body %}
+{% block main %}
 
 
 {#    {% if error %}#}
@@ -24,7 +24,7 @@
             </div>
 
             <div class="mt-10">
-                <form method="POST" class="space-y-6">
+                <form method="POST" class="flex flex-col gap-6">
                     <div>
                         <label for="email"
                                class="block text-sm font-medium leading-6 text-gray-900">Email</label>
@@ -69,7 +69,9 @@
                                 class="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                             Se connecter
                         </button>
+                        <a href="{{ path('app_register') }}" class="flex w-full justify-center mt-2 text-sm underline">Créer un compte</a>
                     </div>
+
                 </form>
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
