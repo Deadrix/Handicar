@@ -15,9 +15,9 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="flex flex-col w-screen font-primary">
+<body class="flex flex-col font-primary">
 {% block header %}{% endblock %}
-<main class="w-full">
+<main>
     {% block main %}{% endblock %}
 </main>
 {% block footer %}{% endblock %}
